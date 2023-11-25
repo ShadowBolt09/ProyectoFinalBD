@@ -66,14 +66,40 @@ def ver_Tran():
 
 
 ## ACCEDER A SELECT
-@app.route("/insertar")
-def insertar():
-    return render_template("insertar.html")
+@app.route("/insertarCuenta")
+def insertarCuent():
+    return render_template("insertar_cuentas.html")
 
 
 ## GUARDAR DATOS DEL USUARIO
-@app.route("/insert", methods=["GET", "POST"])
-def insert():
+@app.route("/insertCuenta", methods=["GET", "POST"])
+def insertCuent():
+    if request.method == "GET":
+        return "Método erróneo, favor de usar el correcto"
+    if request.method == "POST":
+        nombre = request.form["nombre"]
+        precio = request.form["pre"]
+        modelo = request.form["m"]
+        cursor = mysql.connection.cursor()
+        cursor.execute(
+            """INSERT INTO Autos (Nombre, Modelo, Precio) VALUES (%s,%s,%s)""",
+            (nombre, modelo, precio),
+        )
+        mysql.connection.commit()
+        cursor.close()
+        return ver_datos()
+
+
+
+## ACCEDER A SELECT
+@app.route("/insertarTransaccion")
+def insertarTran():
+    return render_template("insertar_transacciones.html")
+
+
+## GUARDAR DATOS DEL USUARIO
+@app.route("/insertTransaccion", methods=["GET", "POST"])
+def insertTran():
     if request.method == "GET":
         return "Método erróneo, favor de usar el correcto"
     if request.method == "POST":
@@ -92,13 +118,35 @@ def insert():
 
 
 ## ACCEDER A UPDATE
-@app.route("/update")
-def update():
-    return render_template("update.html")
+@app.route("/updateCuenta")
+def updateCuent():
+    return render_template("update_cuentas.html")
 
 
-@app.route("/actualizar", methods=["POST"])
-def actualizar():
+@app.route("/actualizarCuenta", methods=["POST"])
+def actualizarCuent():
+    id = request.form["id"]
+    nombre = request.form["nombre"]
+    modelo = request.form["modelo"]
+    precio = request.form["precio"]
+    cursor = mysql.connection.cursor()
+    cursor.execute(
+        """UPDATE Autos SET Nombre=%s, Modelo=%s, Precio=%s WHERE id=%s""",
+        (nombre, modelo, precio, id),
+    )
+    mysql.connection.commit()
+    cursor.close()
+    return ver_datos()
+
+
+## ACCEDER A UPDATE
+@app.route("/updateTransaccion")
+def updateTran():
+    return render_template("update_transacciones.html")
+
+
+@app.route("/actualizarTransaccion", methods=["POST"])
+def actualizarTran():
     id = request.form["id"]
     nombre = request.form["nombre"]
     modelo = request.form["modelo"]

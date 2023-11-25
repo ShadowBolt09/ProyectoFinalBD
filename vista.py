@@ -80,10 +80,7 @@ def insertCuenta():
         nombre = request.form["nom"]
         saldo = request.form["sal"]
         cursor = mysql.connection.cursor()
-        cursor.execute(
-            """INSERT INTO Cuenta (ID, NombreCuenta, Saldo) VALUES (%s,%s,%s)""",
-            (id, nombre, saldo),
-        )
+        cursor.execute('''INSERT INTO Cuenta (ID, NombreCuenta, Saldo) VALUES (%s,%s,%s)''',(id, nombre, saldo))
         mysql.connection.commit()
         cursor.close()
         return ver_datos()
@@ -108,10 +105,7 @@ def insertTransaccion():
         tipotransaccion = request.form["tran"]
         metodopago = request.form["pag"]
         cursor = mysql.connection.cursor()
-        cursor.execute(
-            """INSERT INTO Transaccion (ID, Fecha, Descripcion, Monto, TipoTransaccion, MetodoPago) VALUES (%s,%s,%s,%s,%s,%s)""",
-            (id, fecha, descripcion, monto, tipotransaccion, metodopago),
-        )
+        cursor.execute('''INSERT INTO Transaccion (ID, Fecha, Descripcion, Monto, TipoTransaccion, MetodoPago) VALUES (%s,%s,%s,%s,%s,%s)''',(id, fecha, descripcion, monto, tipotransaccion, metodopago))
         mysql.connection.commit()
         cursor.close()
         return ver_datos()

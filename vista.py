@@ -30,7 +30,7 @@ def inicio():
 
 ## ACCEDER A LA BASE DE DATOS Y MOSTRAR REGISTROS
 @app.route("/verBalance", methods=["GET"])
-def ver_datos():
+def ver_Bal():
     cursor = mysql.connection.cursor()
     cursor.execute("""SELECT * FROM BalanceDetalle""")
     BalanceDetalle = cursor.fetchall()
@@ -39,7 +39,7 @@ def ver_datos():
 
 ## ACCEDER A LA BASE DE DATOS Y MOSTRAR REGISTROS
 @app.route("/verCuenta", methods=["GET"])
-def ver_datos():
+def ver_Cue():
     cursor = mysql.connection.cursor()
     cursor.execute("""SELECT * FROM Cuenta""")
     Cuenta = cursor.fetchall()
@@ -49,7 +49,7 @@ def ver_datos():
 
 ## ACCEDER A LA BASE DE DATOS Y MOSTRAR REGISTROS
 @app.route("/verEstado", methods=["GET"])
-def ver_datos():
+def ver_Est():
     cursor = mysql.connection.cursor()
     cursor.execute("""SELECT id, Nombre, Modelo, Precio FROM Autos""")
     Autos = cursor.fetchall()
@@ -59,7 +59,7 @@ def ver_datos():
 
 ## ACCEDER A LA BASE DE DATOS Y MOSTRAR REGISTROS
 @app.route("/verTransaccion", methods=["GET"])
-def ver_datos():
+def ver_Tran():
     cursor = mysql.connection.cursor()
     cursor.execute("""SELECT id, Nombre, Modelo, Precio FROM Autos""")
     Autos = cursor.fetchall()

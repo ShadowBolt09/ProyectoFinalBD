@@ -29,14 +29,23 @@
     <center>
         <h2>Insertar nueva Transaccion</h2>
         <form method="POST" action="/insert">
-            <label for="Nombre">Marca: </label>
-            <input type="text" name="nombre" required><br><br>
+            <label for="ID">ID: </label>
+            <input type="text" name="id" required><br><br>
 
-            <label for="Precio">Precio: </label>
-            <input type="number" name="pre" required><br><br>
+            <label for="Fecha">Fecha: </label>
+            <input type="text" name="fec" required><br><br>
 
-            <label for="Modelo">Modelo: </label>
-            <input type="text" name="m" required><br><br>
+            <label for="Descripcion">Descripcion: </label>
+            <input type="text" name="des" required><br><br>
+
+            <label for="Monto">Monto: </label>
+            <input type="number" name="mon" required><br><br>
+
+            <label for="TipoTransaccion">Tipo de Transaccion: </label>
+            <input type="text" name="tran" required><br><br>
+
+            <label for="MetodoPago">Metodo de Pago: </label>
+            <input type="text" name="pag" required><br><br>
 
             <input type="submit" value="Guardar"> <!-- Botón para guardar -->
             <input type="reset" value="Limpiar"> <!-- Botón para limpiar el formulario -->

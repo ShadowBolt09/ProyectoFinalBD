@@ -77,13 +77,13 @@ def insertCuent():
     if request.method == "GET":
         return "Método erróneo, favor de usar el correcto"
     if request.method == "POST":
-        nombre = request.form["nombre"]
-        precio = request.form["pre"]
-        modelo = request.form["m"]
+        id = request.form["id"]
+        nombre = request.form["nom"]
+        saldo = request.form["sal"]
         cursor = mysql.connection.cursor()
         cursor.execute(
-            """INSERT INTO Autos (Nombre, Modelo, Precio) VALUES (%s,%s,%s)""",
-            (nombre, modelo, precio),
+            """INSERT INTO Cuenta (ID, NombreCuenta, Saldo) VALUES (%s,%s,%s)""",
+            (id, nombre, saldo),
         )
         mysql.connection.commit()
         cursor.close()
@@ -103,13 +103,16 @@ def insertTran():
     if request.method == "GET":
         return "Método erróneo, favor de usar el correcto"
     if request.method == "POST":
-        nombre = request.form["nombre"]
-        precio = request.form["pre"]
-        modelo = request.form["m"]
+        id = request.form["id"]
+        fecha = request.form["fec"]
+        descripcion = request.form["des"]
+        monto = request.form["mon"]
+        tipotransaccion = request.form["tran"]
+        metodopago = request.form["pag"]
         cursor = mysql.connection.cursor()
         cursor.execute(
-            """INSERT INTO Autos (Nombre, Modelo, Precio) VALUES (%s,%s,%s)""",
-            (nombre, modelo, precio),
+            """INSERT INTO Transaccion (ID, Fecha, Descripcion, Monto, TipoTransaccion, MetodoPago) VALUES (%s,%s,%s,%s,%s,%s)""",
+            (id, fecha, descripcion, monto, tipotransaccion, metodopago),
         )
         mysql.connection.commit()
         cursor.close()

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+</head>
+
+<body>
+        <h2>Login</h2>
+        <form id="loginForm">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required>
+                <br>
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena" required>
+                <br>
+                <button type="button" onclick="verificarLogin()">Iniciar sesión</button>
+        </form>
+        <div id="resultado"></div>
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

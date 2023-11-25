@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale-1, maximum-scale-1, user-scalable=no" name="viewport">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
+        <title>Muestra Datos de la Base de Datos</title>
+</head>
+
+<body>
+        <!-- crea una liga o referencia a otro documto -->
+        <nav id='menu'>
+                <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+                <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/verTransacciones">Transacciones</a></li>
+                        <li><a href="/verCuentas">Cuentas</a></li>
+                        <li><a href="/verBalances">Balances</a></li>
+                        <li><a href="/#">Estados Financieros</a></li>
+                        <li><a href="/generar">Generador de Informes</a></li>
+                        <li><a href="/insertTransaccion">Agregar Transaccion</a></li>
+                        <li><a href="/insertCuenta">Agregar Cuenta</a></li>
+
+                </ul>
+        </nav>
+        <center>
+                <h2>Lista de Estados Financieros</h2>
+                <hr>
+                <hr>
+                <table> <!-- Definicion de encabezado y columnas -->
+                        <thead>
+                                <tr>
+                                        <th>ID</th> <!-- Table head -->
+                                        <th>Periodo</th>
+                                        <th>Cuenta</th>
+                                        <th>Balance</th>
+                                </tr>
+                        </thead>
+                        <!-- Definicion del cuerpo de la tabla con datos manipulados con Jinja -->
+                        <tbody>
+                                {% for auto in Autos %}
+                                <tr>
+                                        <td>{{ auto[0] }}</td>
+                                        <td>{{ auto[1] }}</td>
+                                        <td>{{ auto[2] }}</td>
+                                        <td>{{ auto[3] }}</td>
+                                        <td>{{ auto[4] }}</td>
+                                        <!-- FOR con Jinja -->
+                                </tr>
+                                {% endfor %}
+                        </tbody>
+                </table>
+        </center>
+
+</body>
+
+</html>

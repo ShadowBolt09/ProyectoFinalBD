@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+</head>
+
+<body>
+    <h2>Registro de Usuario</h2>
+    <form id="registroForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+        <label for="appaterno">Apellido Paterno:</label>
+        <input type="text" id="appaterno" name="appaterno" required>
+        <br>
+        <label for="apmaterno">Apellido Materno:</label>
+        <input type="text" id="apmaterno" name="apmaterno" required>
+        <br>
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+        <br>
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" required>
+        <br>
+        <button type="button" onclick="registrarUsuario()">Registrar</button>
+    </form>
+    <div id="mensaje"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{{ url_for('static', filename='js/registro.js') }}"></script>
+</body>
+
+</html>

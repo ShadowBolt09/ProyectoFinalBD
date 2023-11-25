@@ -51,19 +51,18 @@ def ver_Cue():
 @app.route("/verEstado", methods=["GET"])
 def ver_Est():
     cursor = mysql.connection.cursor()
-    cursor.execute("""SELECT id, Nombre, Modelo, Precio FROM Autos""")
-    Autos = cursor.fetchall()
-    return render_template("pagina_estados.html", Autos=Autos)
-
+    cursor.execute("""SELECT * FROM EstadosFinancieros""")
+    EstadosFinancieros = cursor.fetchall()
+    return render_template("pagina_estados.html", EstadosFinancieros=EstadosFinancieros)
 
 
 ## ACCEDER A LA BASE DE DATOS Y MOSTRAR REGISTROS
 @app.route("/verTransaccion", methods=["GET"])
 def ver_Tran():
     cursor = mysql.connection.cursor()
-    cursor.execute("""SELECT id, Nombre, Modelo, Precio FROM Autos""")
-    Autos = cursor.fetchall()
-    return render_template("pagina_transacciones.html", Autos=Autos)
+    cursor.execute("""SELECT * FROM Transaccion""")
+    Transaccion = cursor.fetchall()
+    return render_template("pagina_transacciones.html", Transaccion=Transaccion)
 
 
 ## ACCEDER A SELECT

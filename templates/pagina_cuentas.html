@@ -36,19 +36,17 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>Precio</th>
+                    <th>Nombre de la Cuenta</th>
+                    <th>Saldo</th>
                 </tr>
             </thead>
             <!-- Definición del cuerpo de la tabla con datos dinámicos usando Jinja -->
             <tbody>
-                {% for auto in Autos %}
+                {% for cuenta in Cuenta %}
                 <tr>
-                    <td>{{ auto[0] }}</td>
-                    <td>{{ auto[1] }}</td>
-                    <td>{{ auto[2] }}</td>
-                    <td>{{ auto[3] }}</td>
+                    <td>{{ cuenta[0] }}</td>
+                    <td>{{ cuenta[1] }}</td>
+                    <td>{{ cuenta[2] }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

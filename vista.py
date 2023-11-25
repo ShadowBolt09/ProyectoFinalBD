@@ -29,12 +29,41 @@ def inicio():
 
 
 ## ACCEDER A LA BASE DE DATOS Y MOSTRAR REGISTROS
-@app.route("/ver", methods=["GET"])
+@app.route("/verBalance", methods=["GET"])
+def ver_datos():
+    cursor = mysql.connection.cursor()
+    cursor.execute("""SELECT * FROM BalanceDetalle""")
+    BalanceDetalle = cursor.fetchall()
+    return render_template("pagina_balances.html", BalanceDetalle=BalanceDetalle)
+
+
+## ACCEDER A LA BASE DE DATOS Y MOSTRAR REGISTROS
+@app.route("/verCuenta", methods=["GET"])
+def ver_datos():
+    cursor = mysql.connection.cursor()
+    cursor.execute("""SELECT * FROM Cuenta""")
+    Cuenta = cursor.fetchall()
+    return render_template("pagina_cuentas.html", Cuenta=Cuenta)
+
+
+
+## ACCEDER A LA BASE DE DATOS Y MOSTRAR REGISTROS
+@app.route("/verEstado", methods=["GET"])
 def ver_datos():
     cursor = mysql.connection.cursor()
     cursor.execute("""SELECT id, Nombre, Modelo, Precio FROM Autos""")
     Autos = cursor.fetchall()
-    return render_template("pagina.html", Autos=Autos)
+    return render_template("pagina_estados.html", Autos=Autos)
+
+
+
+## ACCEDER A LA BASE DE DATOS Y MOSTRAR REGISTROS
+@app.route("/verTransaccion", methods=["GET"])
+def ver_datos():
+    cursor = mysql.connection.cursor()
+    cursor.execute("""SELECT id, Nombre, Modelo, Precio FROM Autos""")
+    Autos = cursor.fetchall()
+    return render_template("pagina_transacciones.html", Autos=Autos)
 
 
 ## ACCEDER A SELECT
@@ -60,6 +89,7 @@ def insert():
         mysql.connection.commit()
         cursor.close()
         return ver_datos()
+
 
 
 ## ACCEDER A UPDATE

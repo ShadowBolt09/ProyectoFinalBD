@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
+    <title>Muestra Datos de la Base de Datos</title>
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <nav id='menu'>
+        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+        <ul>
+            <li><a href="/">Main</a></li>
+            <li><a href="/verBalance">Balances</a></li>
+            <li><a href="/verCuenta">Cuentas</a></li>
+            <li><a href="/verEstado">Estados</a></li>
+            <li><a href="/verTransaccion">Transacciones</a></li>
+            <li><a href="/insertarCuenta">Agregar Cuenta</a></li>
+            <li><a href="/#">Agregar Cuenta</a></li>
+            <li><a href="/updateCuenta">Actualiza Cuenta</a></li>
+            <li><a href="/updateTransaccion">Actualiza Transaccion</a></li>
+        </ul>
+    </nav>
+
+    <!-- Formulario para insertar registros -->
+    <center>
+        <h2>Insertar nueva Transaccion</h2>
+        <form method="POST" action="/insert">
+            <label for="Nombre">Marca: </label>
+            <input type="text" name="nombre" required><br><br>
+
+            <label for="Precio">Precio: </label>
+            <input type="number" name="pre" required><br><br>
+
+            <label for="Modelo">Modelo: </label>
+            <input type="text" name="m" required><br><br>
+
+            <input type="submit" value="Guardar"> <!-- Botón para guardar -->
+            <input type="reset" value="Limpiar"> <!-- Botón para limpiar el formulario -->
+        </form>
+    </center>
+</body>
+
+</html>

@@ -1,27 +1,38 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
+        <title>Muestra Datos de la Base de Datos</title>
 </head>
 
 <body>
-        <h2>Login</h2>
-        <form id="loginForm">
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" required>
-                <br>
-                <label for="contrasena">Contraseña:</label>
-                <input type="password" id="contrasena" name="contrasena" required>
-                <br>
-                <button type="button" onclick="verificarLogin()">Iniciar sesión</button>
-        </form>
-        <div id="resultado"></div>
+        <!-- Barra de navegación -->
+        <nav id='menu'>
+                <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+                <ul>
+                        <li><a href="#">Main</a></li>
+                        <li><a href="/verBalance">Balances</a></li>
+                        <li><a href="/verCuenta">Cuentas</a></li>
+                        <li><a href="/verEstado">Estados</a></li>
+                        <li><a href="/verTransaccion">Transacciones</a></li>
+                        <li><a href="/insertarCuenta">Agregar Cuenta</a></li>
+                        <li><a href="/insertarTransaccion">Agregar Cuenta</a></li>
+                        <li><a href="/updateCuenta">Actualiza Cuenta</a></li>
+                        <li><a href="/updateTransaccion">Actualiza Transaccion</a></li>
 
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+                </ul>
+        </nav>
+
+        <!-- Título principal -->
+        <h1>Bienvenido a ContaAPP</h1>
+
+        <!-- Imagen -->
+        <center>
+                <img src="{{url_for('static',filename='images/images.jpg')}}" alt="Mi imagen" width="600" height="400">
+        </center>
 </body>
 
 </html>

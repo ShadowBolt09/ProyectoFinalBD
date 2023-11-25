@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
+    <title>Update</title>
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <nav id='menu'>
+        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+        <ul>
+            <li><a href="/">Main</a></li>
+            <li><a href="/verBalance">Balances</a></li>
+            <li><a href="/verCuenta">Cuentas</a></li>
+            <li><a href="/verEstado">Estados</a></li>
+            <li><a href="/verTransaccion">Transacciones</a></li>
+            <li><a href="/insertarCuenta">Agregar Cuenta</a></li>
+            <li><a href="/insertarTransaccion">Agregar Cuenta</a></li>
+            <li><a href="/updateCuenta">Actualiza Cuenta</a></li>
+            <li><a href="/#">Actualiza Transaccion</a></li>
+        </ul>
+    </nav>
+
+    <!-- Título principal -->
+    <center>
+        <h2>Actualizar Transacciones</h2>
+
+        <form action="/actualizar" method="post">
+            <label for="id">ID del auto a actualizar:</label>
+            <input type="text" id="id" name="id" required><br>
+            <label for="nombre">Nuevo nombre:</label>
+            <input type="text" id="nombre" name="nombre"><br>
+            <label for="modelo">Nuevo modelo:</label>
+            <input type="text" id="modelo" name="modelo"><br>
+            <label for="precio">Nuevo precio:</label>
+            <input type="text" id="precio" name="precio"><br>
+            <input type="submit" value="Actualizar">
+        </form>
+    </center>
+</body>
+
+</html>

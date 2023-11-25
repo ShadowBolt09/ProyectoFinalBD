@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/estilo.css')}}">
+    <title>Muestra Datos de la Base de Datos</title>
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <nav id='menu'>
+        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+        <ul>
+            <li><a href="/">Main</a></li>
+            <li><a href="/verBalance">Balances</a></li>
+            <li><a href="/verCuenta">Cuentas</a></li>
+            <li><a href="/#">Estados</a></li>
+            <li><a href="/verTransaccion">Transacciones</a></li>
+            <li><a href="/insertarCuenta">Agregar Cuenta</a></li>
+            <li><a href="/insertarTransaccion">Agregar Cuenta</a></li>
+            <li><a href="/updateCuenta">Actualiza Cuenta</a></li>
+            <li><a href="/updateTransaccion">Actualiza Transaccion</a></li>
+        </ul>
+    </nav>
+
+    <!-- Encabezado -->
+    <center>
+        <h2>Lista de Estados</h2>
+        <hr>
+        <hr>
+        <!-- Tabla para mostrar los datos -->
+        <table>
+            <!-- Definición del encabezado de la tabla -->
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <!-- Definición del cuerpo de la tabla con datos dinámicos usando Jinja -->
+            <tbody>
+                {% for auto in Autos %}
+                <tr>
+                    <td>{{ auto[0] }}</td>
+                    <td>{{ auto[1] }}</td>
+                    <td>{{ auto[2] }}</td>
+                    <td>{{ auto[3] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+</body>
+
+</html>

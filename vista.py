@@ -125,7 +125,7 @@ def registrar_usuario():
             # Hacer commit para confirmar los cambios
             mysql.connection.commit()
 
-
+# hola aaaa
 @app.route("/home")
 def home():
     return render_template("home.html")

@@ -67,13 +67,13 @@ def ver_Tran():
 
 ## ACCEDER A SELECT
 @app.route("/insertarCuenta")
-def insertarCuent():
+def insertarCuenta():
     return render_template("insertar_cuentas.html")
 
 
 ## GUARDAR DATOS DEL USUARIO
 @app.route("/insertCuenta", methods=["GET", "POST"])
-def insertCuent():
+def insertCuenta():
     if request.method == "GET":
         return "Método erróneo, favor de usar el correcto"
     if request.method == "POST":
@@ -90,13 +90,13 @@ def insertCuent():
 
 ## ACCEDER A SELECT
 @app.route("/insertarTransaccion")
-def insertarTran():
+def insertarTransaccion():
     return render_template("insertar_transacciones.html")
 
 
 ## GUARDAR DATOS DEL USUARIO
 @app.route("/insertTransaccion", methods=["GET", "POST"])
-def insertTran():
+def insertTransaccion():
     if request.method == "GET":
         return "Método erróneo, favor de usar el correcto"
     if request.method == "POST":

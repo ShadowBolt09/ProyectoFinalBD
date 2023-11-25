@@ -29,15 +29,24 @@
     <center>
         <h2>Actualizar Transacciones</h2>
 
-        <form action="/actualizar" method="post">
-            <label for="id">ID del auto a actualizar:</label>
-            <input type="text" id="id" name="id" required><br>
-            <label for="nombre">Nuevo nombre:</label>
-            <input type="text" id="nombre" name="nombre"><br>
-            <label for="modelo">Nuevo modelo:</label>
-            <input type="text" id="modelo" name="modelo"><br>
-            <label for="precio">Nuevo precio:</label>
-            <input type="text" id="precio" name="precio"><br>
+        <form action="/actualizarTran" method="post">
+            <label for="ID">ID: </label>
+            <input type="text" name="id" required><br><br>
+
+            <label for="Fecha">Fecha: </label>
+            <input type="text" name="fec" required><br><br>
+
+            <label for="Descripcion">Descripcion: </label>
+            <input type="text" name="des" required><br><br>
+
+            <label for="Monto">Monto: </label>
+            <input type="number" name="mon" required><br><br>
+
+            <label for="TipoTransaccion">Tipo de Transaccion: </label>
+            <input type="text" name="tran" required><br><br>
+
+            <label for="MetodoPago">Metodo de Pago: </label>
+            <input type="text" name="pag" required><br><br>
             <input type="submit" value="Actualizar">
         </form>
     </center>

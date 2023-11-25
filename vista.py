@@ -46,7 +46,6 @@ def ver_Cue():
     return render_template("pagina_cuentas.html", Cuenta=Cuenta)
 
 
-
 ## ACCEDER A LA BASE DE DATOS Y MOSTRAR REGISTROS
 @app.route("/verEstado", methods=["GET"])
 def ver_Est():
@@ -81,11 +80,13 @@ def insertCuenta():
         nombre = request.form["nom"]
         saldo = request.form["sal"]
         cursor = mysql.connection.cursor()
-        cursor.execute('''INSERT INTO Cuenta (ID, NombreCuenta, Saldo) VALUES (%s,%s,%s)''',(id, nombre, saldo))
+        cursor.execute(
+            """INSERT INTO Cuenta (ID, NombreCuenta, Saldo) VALUES (%s,%s,%s)""",
+            (id, nombre, saldo),
+        )
         mysql.connection.commit()
         cursor.close()
         return ver_datos()
-
 
 
 ## ACCEDER A SELECT
@@ -107,11 +108,13 @@ def insertTransaccion():
         tipotransaccion = request.form["tran"]
         metodopago = request.form["pag"]
         cursor = mysql.connection.cursor()
-        cursor.execute('''INSERT INTO Transaccion (ID, Fecha, Descripcion, Monto, TipoTransaccion, MetodoPago) VALUES (%s,%s,%s,%s,%s,%s)''',(id, fecha, descripcion, monto, tipotransaccion, metodopago))
+        cursor.execute(
+            """INSERT INTO Transaccion (ID, Fecha, Descripcion, Monto, TipoTransaccion, MetodoPago) VALUES (%s,%s,%s,%s,%s,%s)""",
+            (id, fecha, descripcion, monto, tipotransaccion, metodopago),
+        )
         mysql.connection.commit()
         cursor.close()
         return ver_datos()
-
 
 
 ## ACCEDER A UPDATE
@@ -122,15 +125,11 @@ def updateCuent():
 
 @app.route("/actualizarCuenta", methods=["POST"])
 def actualizarCuent():
-    id = request.form["id"]
-    nombre = request.form["nombre"]
-    modelo = request.form["modelo"]
-    precio = request.form["precio"]
+    id = request.form["ID"]
+    nombre = request.form["NombreCuenta"]
+    saldo = request.form["Saldo"]
     cursor = mysql.connection.cursor()
-    cursor.execute(
-        """UPDATE Autos SET Nombre=%s, Modelo=%s, Precio=%s WHERE id=%s""",
-        (nombre, modelo, precio, id),
-    )
+    cursor.execute('''UPDATE Cuenta SET ID=%s, NombreCuenta=%s, Saldo=%s WHERE ID=%s''',(id, nombre, saldo, id))
     mysql.connection.commit()
     cursor.close()
     return ver_datos()
@@ -145,14 +144,14 @@ def updateTran():
 @app.route("/actualizarTransaccion", methods=["POST"])
 def actualizarTran():
     id = request.form["id"]
-    nombre = request.form["nombre"]
-    modelo = request.form["modelo"]
-    precio = request.form["precio"]
+    fecha = request.form["fec"]
+    descripcion = request.form["des"]
+    monto = request.form["mon"]
+    tipotransaccion = request.form["tran"]
+    metodopago = request.form["pag"]
     cursor = mysql.connection.cursor()
     cursor.execute(
-        """UPDATE Autos SET Nombre=%s, Modelo=%s, Precio=%s WHERE id=%s""",
-        (nombre, modelo, precio, id),
-    )
+        '''UPDATE Transaccion SET ID=%s, Fecha=%s, Descripcion=%s,Monto=%s, TipoTransaccion=%s, MetodoPago=%s WHERE ID=%s''',(id, fecha, descripcion, monto, tipotransaccion, metodopago, id))
     mysql.connection.commit()
     cursor.close()
     return ver_datos()

@@ -28,16 +28,16 @@
     <!-- Título principal -->
     <center>
         <h2>Actualizar Cuentas</h2>
+        <form action="/actualizarCuenta" method="post">
+            <label for="ID">ID: </label>
+            <input type="text" name="ID" required><br><br>
 
-        <form action="/actualizar" method="post">
-            <label for="id">ID del auto a actualizar:</label>
-            <input type="text" id="id" name="id" required><br>
-            <label for="nombre">Nuevo nombre:</label>
-            <input type="text" id="nombre" name="nombre"><br>
-            <label for="modelo">Nuevo modelo:</label>
-            <input type="text" id="modelo" name="modelo"><br>
-            <label for="precio">Nuevo precio:</label>
-            <input type="text" id="precio" name="precio"><br>
+            <label for="NombreCuenta">Nombre de la Cuenta: </label>
+            <input type="text" name="NombreCuenta" required><br><br>
+
+            <label for="Saldo">Saldo: </label>
+            <input type="number" name="Saldo" required><br><br>
+
             <input type="submit" value="Actualizar">
         </form>
     </center>
